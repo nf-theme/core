@@ -9,7 +9,7 @@ class View
     use ViewTrait;
     public function __construct()
     {
-        $this->setViewPath(__DIR__ . '/../../resources/views');
-        $this->setCachePath(__DIR__ . '/../../storage/cache');
+        $this->setViewPath(__DIR__ . '/../../../../../resources/views');
+        $this->setCachePath(__DIR__ . '/../../../../../storage/cache');
     }
 }
