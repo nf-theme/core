@@ -6,7 +6,6 @@
         "name": "Hieupv",
         "email": "hieupv@codersvn.com"
     }],
-    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "NF\\": "src/"
@@ -14,7 +13,7 @@
     },
     "require": {
         "php": ">=5.6",
-        "doctrine/inflector": "~1.1",
+        "doctrine/inflector": "v1.1.0",
         "illuminate/http": "5.4.36",
         "illuminate/log": "5.4.36",
         "illuminate/database": "5.4.36",
