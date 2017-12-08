@@ -45,6 +45,9 @@ class Application extends Container
         Facade::setFacadeApplication($this);
         $this->registerBaseBindings();
         $this->registerBaseServiceProviders();
+        foreach ($this->config('providers') as $provider) {
+            $this->register(new $provider($this));
+        }
     }
 
     /**
