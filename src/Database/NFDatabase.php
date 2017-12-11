@@ -1,6 +1,6 @@
 <?php
 
-namespace NFWP\Database;
+namespace NF\Database;
 
 use NF\Database\DBManager;
 use NF\Facades\App;
