@@ -53,8 +53,10 @@ class HandleExceptions
      */
     public function handleError($level, $message, $file = '', $line = 0, $context = [])
     {
-        if (error_reporting() & $level) {
-            throw new ErrorException($message, 0, $level, $file, $line);
+        if ($this->isFatal(error_reporting() & $level)) {
+            if (error_reporting() & $level) {
+                throw new ErrorException($message, 0, $level, $file, $line);
+            }
         }
     }
 
