@@ -2,56 +2,51 @@
 namespace NF\Logs;
 
 use Elastica\Client;
-use Monolog\Handler\ElasticSearchHandler;
-use Monolog\Logger;
-use NF\Logs\Facades\Config;
 
 class VicodersLog
 {
-    protected $handler;
     protected $client;
     protected $options;
 
-    public function __construct()
+    static $instance;
+
+    public $host = 'logs.vicoders.com';
+    public $port = '9200';
+
+    private function __construct()
     {
-        $config       = Config::get();
-        $this->client = new Client($config);
-
-        $domain = !empty($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : replace(["http://", "https://", ":", "/", "-"], '', site_url());
-
+        if (defined('VCLOG_HOST')) {
+            $this->host = VCLOG_HOST;
+        }
+        if (defined('VCLOG_PORT')) {
+            $this->port = VCLOG_PORT;
+        }
+        $config = [
+            'host' => $this->host,
+            'port' => $this->port,
+        ];
+        $this->client  = new Client($config);
         $this->options = [
-            'index' => $domain,
+            'index' => $_SERVER['SERVER_NAME'],
             'type'  => 'doc',
         ];
     }
 
-    public function info($message)
+    public function getClient()
     {
-        $this->handler = new ElasticSearchHandler($this->client, $this->options, Logger::INFO);
-        $this->pushHandler($message, 'info');
+        return $this->client;
     }
 
-    public function warning($message)
+    public function getOption()
     {
-        $this->handler = new ElasticSearchHandler($this->client, $this->options, Logger::WARNING);
-        $this->pushHandler($message, 'warning');
+        return $this->options;
     }
 
-    public function error($message)
+    public static function getInstance()
     {
-        $this->handler = new ElasticSearchHandler($this->client, $this->options, Logger::ERROR);
-        $this->pushHandler($message, 'error');
-    }
-
-    public function debug($message)
-    {
-        $this->handler = new ElasticSearchHandler($this->client, $this->options, Logger::DEBUG);
-        $this->pushHandler($message, 'debug');
-    }
-
-    public function pushHandler($message, $type = 'info') {
-        $log           = new Logger('Vicoders Logs Tool');
-        $log->pushHandler($this->handler);
-        $log->{$type}($message);
+        if (!isset(static::$instance)) {
+            static::$instance = new static;
+        }
+        return static::$instance;
     }
 }
