@@ -75,6 +75,7 @@ class Application extends Container
         $this->register(new CustomPostServiceProvider($this));
         $this->register(new TaxonomyServiceProvider($this));
         $this->register(new WidgetServiceProvider($this));
+        $this->register(new \NF\Logs\VLogServiceProvider($this));
     }
 
     /**
