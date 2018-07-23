@@ -29,6 +29,7 @@
         "league/flysystem": "^1.0",
         "monkeyscode/widget": "^1.0",
         "monkeyscode/tax": "^1.0",
-        "monkeyscode/listing": "^1.2"
+        "monkeyscode/listing": "^1.2",
+        "ruflin/elastica": "^6.0"
     }
 }
