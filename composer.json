@@ -1,35 +1,36 @@
 {
-    "name": "nf/core",
-    "description": "Packages for nf-theme",
-    "license": "MIT",
-    "authors": [{
-        "name": "Hieupv",
-        "email": "hieupv@codersvn.com"
-    }],
-    "autoload": {
-        "psr-4": {
-            "NF\\": "src/"
-        }
-    },
-    "require": {
-        "php": ">=5.6",
-        "symfony/event-dispatcher": "v3.4.1",
-        "doctrine/inflector": "v1.1.0",
-        "illuminate/http": "5.4.36",
-        "illuminate/log": "5.4.36",
-        "illuminate/database": "5.4.36",
-        "illuminate/contracts": "5.4.36",
-        "illuminate/support": "5.4.36",
-        "illuminate/filesystem": "5.4.36",
-        "illuminate/container": "5.4.36",
-        "illuminate/events": "5.4.36",
-        "illuminate/view": "5.4.36",
-        "symfony/console": "^3.3",
-        "philo/laravel-blade": "^3.1",
-        "league/flysystem": "^1.0",
-        "monkeyscode/widget": "^1.0",
-        "monkeyscode/tax": "^1.0",
-        "monkeyscode/listing": "^1.2",
-        "ruflin/elastica": "^6.0"
+  "name": "nf/core",
+  "description": "Packages for nf-theme",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Hieupv",
+      "email": "hieupv@codersvn.com"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "NF\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=5.6",
+    "symfony/event-dispatcher": "v3.4.1",
+    "doctrine/inflector": "v1.1.0",
+    "illuminate/http": "5.4.36",
+    "illuminate/log": "5.4.36",
+    "illuminate/database": "5.4.36",
+    "illuminate/contracts": "5.4.36",
+    "illuminate/support": "5.4.36",
+    "illuminate/filesystem": "5.4.36",
+    "illuminate/container": "5.4.36",
+    "illuminate/events": "5.4.36",
+    "illuminate/view": "5.4.36",
+    "symfony/console": "^3.3",
+    "philo/laravel-blade": "^3.1",
+    "league/flysystem": "^1.0",
+    "monkeyscode/widget": "^1.0",
+    "monkeyscode/tax": "^1.0",
+    "monkeyscode/listing": "^1.2"
+  }
 }
