@@ -8,6 +8,7 @@ use App\Providers\LogServiceProvider;
 use App\Providers\ShortCodeServiceProvider;
 use App\Providers\TaxonomyServiceProvider;
 use App\Providers\WidgetServiceProvider;
+use App\Providers\BlockServiceProvider;
 use Illuminate\Container\Container;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Facade;
@@ -75,6 +76,7 @@ class Application extends Container
         $this->register(new CustomPostServiceProvider($this));
         $this->register(new TaxonomyServiceProvider($this));
         $this->register(new WidgetServiceProvider($this));
+        $this->register(new BlockServiceProvider($this));
     }
 
     /**
